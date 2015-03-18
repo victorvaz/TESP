@@ -8,8 +8,23 @@ import java.math.BigDecimal;
  */
 public class Professor extends Pessoa
 {
+
+    /**
+     * @return the BONUS
+     */
+    public static Double getBONUS() {
+        return BONUS;
+    }
+
+    /**
+     * @param aBONUS the BONUS to set
+     */
+    public static void setBONUS(Double aBONUS) {
+        BONUS = aBONUS;
+    }
+    
     private BigDecimal salario;
-    public static Double BONUS = 0.1D;
+    private static Double BONUS = 0.1D;
     
     public Professor()
     {
@@ -27,7 +42,21 @@ public class Professor extends Pessoa
     @Override
     public String toString()
     {
-        return "SALARIO = " + this.salario
-             + ", BONUS = " + BONUS;
+        return "SALARIO = " + this.getSalario()
+             + ", BONUS = " + getBONUS();
+    }
+
+    /**
+     * @return the salario
+     */
+    public BigDecimal getSalario() {
+        return salario;
+    }
+
+    /**
+     * @param salario the salario to set
+     */
+    public void setSalario(BigDecimal salario) {
+        this.salario = salario;
     }
 }
