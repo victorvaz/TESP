@@ -115,4 +115,14 @@ public class ProfessorDAO implements DAO <Professor, String>
     public List<Professor> findAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    public void clean() {
+        try {
+            JDBCUtil.getConnection().prepareStatement("truncate tb_aluno")
+                    .executeUpdate();
+            JDBCUtil.closeConnection();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

@@ -142,5 +142,14 @@ public class AlunoDAO implements DAO <Aluno,Long>
     public List<Aluno> findAll() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
+    public void clean() {
+        try {
+            JDBCUtil.getConnection().prepareStatement("truncate tb_aluno")
+                    .executeUpdate();
+            JDBCUtil.closeConnection();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
